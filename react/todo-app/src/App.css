@@ -1,0 +1,61 @@
+.todo-item {
+  display: flex;
+  width: 400px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  background: #f9f9f9;
+  font-size: 16px;
+  border: 1px solid #ddd;
+
+  &.done {
+    text-decoration: line-through;
+    opacity: 0.6;
+  }
+}
+
+input[type="text"] {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+}
+
+button {
+  padding: 10px;
+  font-size: 16px;
+  background: #f9f9f9;
+  border: 1px solid #ddd;
+  cursor: pointer;
+}
+
+input[type="checkbox"] {
+  appearance: none;
+
+  width: 20px;
+  height: 20px;
+
+  border: 1px solid #ddd;
+  border-radius: 3px;
+}
+
+input[type="checkbox"]:checked {
+  background-color: red;
+}
+
+input[type="checkbox"]::after {
+  content: '';
+
+  margin: 0 auto;
+
+  display: block;
+  width: 10px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+  opacity: 0;
+}
+
+input[type="checkbox"]:checked::after {
+  opacity: 1;
+}
