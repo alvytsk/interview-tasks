@@ -1,0 +1,11 @@
+# uv virtual environment
+.venv/
+
+# Python bytecode
+__pycache__/
+*.py[cod]
+
+# pytest
+.pytest_cache/
+
+# Note: uv.lock is intentionally NOT ignored — commit it for reproducible installs.

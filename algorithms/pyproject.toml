@@ -1,0 +1,17 @@
+[project]
+name = "algorithms"
+version = "0.0.0"
+requires-python = ">=3.14"
+
+[dependency-groups]
+dev = ["pytest>=8"]
+
+[tool.pytest.ini_options]
+# importlib mode = no __init__.py needed, and duplicate filenames
+# (every task can be task.py) won't collide.
+addopts = "--import-mode=importlib"
+# Collect tests from ANY .py file, not just test_*.py — so solution and
+# tests can live together in one self-contained file per task.
+python_files = ["*.py"]
+python_functions = ["test_*"]
+testpaths = ["."]
