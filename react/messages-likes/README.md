@@ -1,8 +1,30 @@
-# React + Vite
+# messages-likes
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A message list where each message can be liked. A header shows the running
+**total** of likes across all messages.
 
-Currently, two official plugins are available:
+## The task
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Type text and add it to a list of messages.
+- Each message has its own "Like" button and like count.
+- Display the sum of all likes at the top, kept in sync as likes change.
+- Avoid re-rendering messages that didn't change when one message is liked.
+
+## How it works
+
+- `messages` is state; the total is derived inline with `reduce` on each render.
+- `handleLike` is wrapped in `useCallback` so its identity is stable across
+  renders.
+- `MsgItem` is wrapped in `React.memo` with a **custom comparator** that re-renders
+  an item only when its own `likes` value changes (`console.log('render', id)`
+  makes the skipped renders visible in the console).
+
+Demonstrates: derived state, `useCallback` for referential stability, and
+`React.memo` with a custom `areEqual` function to control re-renders.
+
+## Run
+
+```bash
+npm install
+npm run dev
+```

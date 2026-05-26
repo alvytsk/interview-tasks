@@ -1,8 +1,26 @@
-# React + Vite
+# todo-app
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A classic todo list: add items and toggle their done state.
 
-Currently, two official plugins are available:
+## The task
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- An input + "Add" button appends a new todo (empty input is ignored).
+- Each todo renders with a checkbox; toggling it flips the `done` flag.
+- Completed items get a `done` class for styling (e.g. strike-through).
+
+## How it works
+
+- `todos` and the input `text` are held in state.
+- Adding builds a new todo `{ id, text, done: false }` immutably with the spread
+  operator; toggling maps over the list and flips `done` for the matching `id`.
+- A `useEffect` logs the list on every change (debugging aid).
+
+Demonstrates: controlled inputs, immutable array updates (add / map-to-update),
+and conditional `className`.
+
+## Run
+
+```bash
+npm install
+npm run dev
+```

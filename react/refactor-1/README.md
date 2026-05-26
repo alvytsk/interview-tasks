@@ -1,50 +1,36 @@
-# React + TypeScript + Vite
+# refactor-1
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A **refactoring task**. The starting point is a buggy component (kept commented
+out under `/// SOURCE` in `src/App.tsx`); the goal is to fix it and then improve
+it. The original prompt (Russian) is preserved at the top of the file:
 
-Currently, two official plugins are available:
+> Component renders list items and their squared value. The "Add" button should
+> add a value to the array, the "Delete" button should remove it.
+> **Task:** fix the functionality.
+> **Bonus:** think about HTML semantics.
+> **Bonus:** think about optimization.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Bugs in the source
 
-## Expanding the ESLint configuration
+- `array` is a plain `let`, mutated with `push` / reassignment — React never
+  re-renders, so changes don't show.
+- Sort toggle has a typo (`"ask"`) that breaks the direction.
+- `sum` is computed by a side effect inside `.map`.
+- `<li>` elements are missing `key`s.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## The refactor (`/// REFACTOR-1`)
 
-- Configure the top-level `parserOptions` property like this:
+- The array lives in `useState` and is updated **immutably** for add/remove.
+- `sum` is derived with `useMemo` over the numbers.
+- Input is validated to accept numbers only.
+- Sort direction is a typed `'asc' | 'desc'` union; list items get `key`s.
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+Demonstrates: turning mutable/non-reactive code into idiomatic React state,
+derived values with `useMemo`, controlled+validated input, and typing with TS.
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+## Run
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+```bash
+npm install
+npm run dev
 ```
