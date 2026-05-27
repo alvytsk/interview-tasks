@@ -8,19 +8,32 @@
 
 import pytest
 
+# var 1
+# def sorted_abs(nums: list[int]) -> list[int]:
+#     res = [0] * len(nums)
+#     left, right = 0, len(nums) - 1
+#     for i in range(len(nums) - 1, -1, -1):
+#         if abs(nums[left]) > abs(nums[right]):
+#             res[i] = abs(nums[left])
+#             left += 1
+#         else:
+#             res[i] = abs(nums[right])
+#             right -= 1
+#     return res
 
-def sorted_abs(nums: list[int]) -> list[int]:
-    res = [0] * len(nums)
-    left, right = 0, len(nums) - 1
-    for i in range(len(nums) - 1, -1, -1):
-        if abs(nums[left]) > abs(nums[right]):
-            res[i] = abs(nums[left])
-            left += 1
+# var 2
+def sorted_abs(nums: list[int]) -> list[int]: 
+    res= []
+    p1 = 0;
+    p2 = len(nums) - 1 
+    while(p1 <= p2):
+        if abs(nums[p1]) > abs(nums[p2]):
+            res.append(abs(nums[p1]))
+            p1 += 1
         else:
-            res[i] = abs(nums[right])
-            right -= 1
-    return res
-
+            res.append(abs(nums[p2]))
+            p2 -= 1
+    return list(reversed(res))
 
 # --- tests: pytest collects every test_* function in this file ---
 
