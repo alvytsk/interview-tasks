@@ -31,7 +31,14 @@ uv run pytest    # run every task
 
 | Topic | Task | Problem |
 | --- | --- | --- |
-| `two-pointers` | `sorted-modules/task.py` | Absolute values of a sorted array, returned sorted, via two pointers |
+| `two-pointers` | [`two-sum`](algorithms/two-pointers/two-sum/task.py) | Indices of two numbers in a sorted array summing to a target |
+| `two-pointers` | [`is-palindrome`](algorithms/two-pointers/is-palindrome/task.py) | Valid palindrome, ignoring case and non-alphanumeric characters |
+| `two-pointers` | [`reverse`](algorithms/two-pointers/reverse/task.py) | Reverse a list of characters in place, without a built-in reverse |
+| `two-pointers` | [`max-area`](algorithms/two-pointers/max-area/task.py) | Container with most water: max area between two lines |
+| `two-pointers` | [`intersect`](algorithms/two-pointers/intersect/task.py) | Common elements of two sorted arrays |
+| `two-pointers` | [`fuzzy_match`](algorithms/two-pointers/fuzzy_match/task.py) | Is `s` a subsequence of `t` (delete chars from `t`, keep order) |
+| `two-pointers` | [`sorted-modules`](algorithms/two-pointers/sorted-modules/task.py) | Absolute values of a sorted array, returned sorted |
+| `two-pointers` | [`elements-square-sort`](algorithms/two-pointers/elements-square-sort/task.py) | Squares of a sorted array, returned sorted |
 
 ## js/
 

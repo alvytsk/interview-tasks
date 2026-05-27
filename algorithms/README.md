@@ -3,6 +3,21 @@
 Python solutions to algorithm tasks, organized by topic. Each task is a single
 self-contained file holding both the solution and its tests.
 
+## Tasks
+
+### `two-pointers`
+
+| Task | Problem |
+| --- | --- |
+| [`two-sum`](two-pointers/two-sum/task.py) | Indices of two numbers in a sorted array summing to a target |
+| [`is-palindrome`](two-pointers/is-palindrome/task.py) | Valid palindrome, ignoring case and non-alphanumeric characters |
+| [`reverse`](two-pointers/reverse/task.py) | Reverse a list of characters in place, without a built-in reverse |
+| [`max-area`](two-pointers/max-area/task.py) | Container with most water: max area between two lines |
+| [`intersect`](two-pointers/intersect/task.py) | Common elements of two sorted arrays |
+| [`fuzzy_match`](two-pointers/fuzzy_match/task.py) | Is `s` a subsequence of `t` (delete chars from `t`, keep order) |
+| [`sorted-modules`](two-pointers/sorted-modules/task.py) | Absolute values of a sorted array, returned sorted |
+| [`elements-square-sort`](two-pointers/elements-square-sort/task.py) | Squares of a sorted array, returned sorted |
+
 ## Setup (once)
 
 ```bash

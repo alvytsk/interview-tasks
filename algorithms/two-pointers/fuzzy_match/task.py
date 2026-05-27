@@ -19,6 +19,19 @@
     len(s) ≥ 0
     len(t) ≥ 0
     Строки s и t содержат только ascii символы 
+
+
+here's the interesting twist that interviewers love 👇
+
+▎ Follow-up: Suppose you get many different s values to check against the same t (say,
+▎  billions of queries). Can you beat O(n) per query?
+
+Now the picture changes. You can preprocess t once and answer each query much faster:
+
+- Idea: build, for each position in t and each of the 26 letters, "the next position ≥
+here where that letter appears." Then for a query s, you jump letter-by-letter
+instead of scanning — each query becomes O(m log n) (or O(m) with a different table),
+independent of how much of t you skip.
 """
 
 import pytest
